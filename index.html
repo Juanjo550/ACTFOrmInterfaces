@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Incidencias · IES Camp de Morvedre</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/formulario.js" defer></script>
+  <!-- Pega aquí el código de seguimiento de Microsoft Clarity antes de cerrar el head -->
+</head>
+<body>
+  <header class="cabecera">
+    <div class="contenedor">
+      <h1>Registro de Incidencias y Averías</h1>
+      <p>IES Camp de Morvedre · Departamento de Mantenimiento y TIC</p>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="tarjeta-formulario" aria-labelledby="titulo-form">
+      <h2 id="titulo-form">Nueva notificación</h2>
+      <p class="nota-obligatorios">Los campos marcados con <span class="asterisco" aria-hidden="true">*</span> son obligatorios.</p>
+
+      <form id="form-incidencia" novalidate>
+        <!-- Nombre y apellidos -->
+        <div class="campo">
+          <label for="nombre">Nombre y apellidos <span class="asterisco" aria-hidden="true">*</span></label>
+          <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+        </div>
+
+        <!-- Correo electrónico -->
+        <div class="campo">
+          <label for="email">Correo electrónico <span class="asterisco" aria-hidden="true">*</span></label>
+          <input type="email" id="email" name="email" placeholder="ejemplo@centro.es" autocomplete="email" required>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="campo">
+          <label for="ubicacion">Ubicación (aula o espacio) <span class="asterisco" aria-hidden="true">*</span></label>
+          <select id="ubicacion" name="ubicacion" required>
+            <option value="">Elige un aula o espacio...</option>
+            <option value="aula-informatica">Aula de Informática (DAW/SMR)</option>
+            <option value="aula-214">Aula 2.14</option>
+            <option value="aula-105">Aula 1.05</option>
+            <option value="taller-redes">Taller de Redes</option>
+            <option value="biblioteca">Biblioteca</option>
+            <option value="conserjeria">Conserjería / Secretaría</option>
+            <option value="otro-espacio">Otro espacio del centro</option>
+          </select>
+        </div>
+
+        <!-- Tipo de incidencia -->
+        <fieldset class="campo-grupo">
+          <legend>Tipo de incidencia <span class="asterisco" aria-hidden="true">*</span></legend>
+          <div class="opciones-radio">
+            <div class="opcion">
+              <input type="radio" id="tipo-hardware" name="tipo" value="hardware" required>
+              <label for="tipo-hardware">Hardware (ordenador, proyector, impresora...)</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="tipo-software" name="tipo" value="software">
+              <label for="tipo-software">Software (sistema operativo, programas, licencias...)</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="tipo-red" name="tipo" value="red">
+              <label for="tipo-red">Red (sin internet, Wi-Fi, cableado...)</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="tipo-mobiliario" name="tipo" value="mobiliario">
+              <label for="tipo-mobiliario">Mobiliario (sillas, mesas, persianas, luz...)</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="tipo-otro" name="tipo" value="otro">
+              <label for="tipo-otro">Otro</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Nº de inventario (Opcional) -->
+        <div class="campo">
+          <label for="inventario">Nº de inventario del equipo (opcional)</label>
+          <input type="text" id="inventario" name="inventario" placeholder="Ej. INV-2024-089">
+        </div>
+
+        <!-- Prioridad -->
+        <fieldset class="campo-grupo">
+          <legend>Prioridad <span class="asterisco" aria-hidden="true">*</span></legend>
+          <div class="opciones-radio opciones-linea">
+            <div class="opcion">
+              <input type="radio" id="prio-baja" name="prioridad" value="baja" required>
+              <label for="prio-baja">Baja</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="prio-media" name="prioridad" value="media">
+              <label for="prio-media">Media</label>
+            </div>
+            <div class="opcion">
+              <input type="radio" id="prio-alta" name="prioridad" value="alta">
+              <label for="prio-alta">Alta</label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Fecha de detección -->
+        <div class="campo">
+          <label for="fecha">Fecha en que se detectó <span class="asterisco" aria-hidden="true">*</span></label>
+          <input type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <!-- Descripción -->
+        <div class="campo">
+          <label for="descripcion">Descripción detallada <span class="asterisco" aria-hidden="true">*</span></label>
+          <textarea id="descripcion" name="descripcion" rows="4" minlength="20" placeholder="Explica qué ocurre, en qué equipo exacto y desde cuándo..." required></textarea>
+        </div>
+
+        <!-- Botones -->
+        <div class="acciones">
+          <button type="submit" class="btn btn-primario">Enviar incidencia</button>
+          <button type="reset" class="btn btn-secundario">Limpiar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p>Proyecto UD4 · Diseño de Interfaces Web (2º DAW)</p>
+    </div>
+  </footer>
+</body>
+</html>

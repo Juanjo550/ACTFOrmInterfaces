@@ -1,0 +1,302 @@
+/* Reset y variables */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primario: #1a4b84;
+  --color-primario-oscuro: #11335c;
+  --color-fondo: #f4f6f9;
+  --color-superficie: #ffffff;
+  --color-texto: #1e293b;
+  --color-texto-suave: #475569;
+  --color-borde: #cbd5e1;
+  --color-error: #b3261e;
+  --color-error-fondo: #fdf2f2;
+  --color-exito: #1e7a3a;
+  --color-exito-fondo: #e7f4ea;
+  --color-foco: #005fcc;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Cabecera */
+.cabecera {
+  background-color: var(--color-primario);
+  color: #ffffff;
+  padding: 1.75rem 0;
+  margin-bottom: 2rem;
+}
+
+.cabecera h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.cabecera p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Contenedor principal */
+main {
+  flex: 1;
+}
+
+.tarjeta-formulario {
+  background-color: var(--color-superficie);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--color-borde);
+}
+
+.tarjeta-formulario h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-primario-oscuro);
+}
+
+.nota-obligatorios {
+  font-size: 0.9rem;
+  color: var(--color-texto-suave);
+  margin-bottom: 1.5rem;
+}
+
+.asterisco {
+  color: var(--color-error);
+  font-weight: bold;
+}
+
+/* Campos y controles */
+.campo {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label,
+.campo-grupo legend {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--color-texto);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color-texto);
+  background-color: #ffffff;
+  border: 1.5px solid var(--color-borde);
+  border-radius: 6px;
+  transition: border-color 0.2s;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Fieldsets y Radios */
+.campo-grupo {
+  border: 1.5px solid var(--color-borde);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.campo-grupo legend {
+  padding: 0 0.4rem;
+}
+
+.opciones-radio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+}
+
+.opciones-linea {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.opcion input[type="radio"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--color-primario);
+  cursor: pointer;
+}
+
+.opcion label {
+  cursor: pointer;
+  font-weight: 400;
+}
+
+/* Foco visible para accesibilidad con teclado */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible,
+a:focus-visible,
+.resumen-errores:focus-visible,
+.confirmacion:focus-visible {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 2px;
+}
+
+/* Botones */
+.acciones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-primario {
+  background-color: var(--color-primario);
+  color: #ffffff;
+}
+
+.btn-primario:hover {
+  background-color: var(--color-primario-oscuro);
+}
+
+.btn-secundario {
+  background-color: #ffffff;
+  color: var(--color-texto);
+  border-color: var(--color-borde);
+}
+
+.btn-secundario:hover {
+  background-color: #e2e8f0;
+}
+
+/* Clases requeridas por formulario.js */
+[hidden] {
+  display: none !important;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.35rem;
+}
+
+[aria-invalid="true"] {
+  border: 2px solid var(--color-error) !important;
+  background-color: var(--color-error-fondo);
+}
+
+.contador {
+  color: var(--color-texto-suave);
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  text-align: right;
+}
+
+.resumen-errores {
+  background-color: var(--color-error-fondo);
+  border: 2px solid var(--color-error);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.resumen-errores h2 {
+  font-size: 1.05rem;
+  color: var(--color-error);
+  margin-bottom: 0.5rem;
+}
+
+.resumen-errores ul {
+  padding-left: 1.25rem;
+}
+
+.resumen-errores li {
+  margin-bottom: 0.25rem;
+}
+
+.resumen-errores a {
+  color: var(--color-error);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.confirmacion {
+  background-color: var(--color-exito-fondo);
+  border: 2px solid var(--color-exito);
+  color: #0f4420;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-top: 1.5rem;
+}
+
+/* Pie de página */
+.pie {
+  text-align: center;
+  padding: 1.5rem 0;
+  margin-top: 2.5rem;
+  font-size: 0.85rem;
+  color: var(--color-texto-suave);
+}
+
+/* Responsive móvil */
+@media (max-width: 540px) {
+  .tarjeta-formulario {
+    padding: 1.25rem;
+  }
+
+  .acciones {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .opciones-linea {
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+}
